@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+
+.title {
+  text-decoration: none;
+  color: $black;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  max-width: max-content;
+}

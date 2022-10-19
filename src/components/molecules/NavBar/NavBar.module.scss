@@ -1,0 +1,22 @@
+@import "../../../styles/variables";
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  background-color: $brandColor;
+  padding: 0 1.25rem;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  color: $white;
+  gap: 1rem;
+}

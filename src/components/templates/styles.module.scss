@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.container {
+  width: 70%;
+  background-color: $primaryBackground;
+  padding-bottom: 1rem;
+
+  .main {
+    padding-left: 2rem;
+
+    .newsList {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container {
+    width: 100%;
+  }
+}
