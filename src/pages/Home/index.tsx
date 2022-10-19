@@ -3,11 +3,11 @@ import * as E from "fp-ts/lib/Either";
 import { pipe } from "fp-ts/lib/function";
 
 import { getNewStories } from "../../services";
+import { INCREMENT, TOTAL_NEWS_ITEMS } from "../../constants";
 import ListItem from "../../components/molecules/ListItem";
 import Button from "../../components/atoms/Button";
-import { INCREMENT, TOTAL_NEWS_ITEMS } from "../../constants";
 import NavBar from "../../components/molecules/NavBar";
-import styles from "../../components/templates/styles.module.scss";
+import NewsTemplate from "../../components/templates/NewsTemplate";
 
 const Home = () => {
   const [newsIds, setNewsIds] = useState<number[]>([]);
@@ -38,26 +38,30 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <NavBar
-        header="Hacker News"
-        activeLink={pathname}
-        links={[
-          { name: "Top Stories", url: "/topstories" },
-          { name: "Best Stories", url: "/beststories" },
-        ]}
-      />
-      {newsIds.length > 0 && (
-        <main className={styles.main}>
-          <ul className={styles.newsList}>
-            {newsIds.slice(0, limit).map((newsId) => {
-              return <ListItem key={newsId} newsId={newsId} />;
-            })}
-          </ul>
-          <Button onClick={handleButtonClick}>Load More</Button>
-        </main>
-      )}
-    </div>
+    <NewsTemplate
+      header={
+        <NavBar
+          header="Hacker News"
+          activeLink={pathname}
+          links={[
+            { name: "Top Stories", url: "/topstories" },
+            { name: "Best Stories", url: "/beststories" },
+          ]}
+        />
+      }
+      body={
+        newsIds.length > 0 ? (
+          <>
+            <ul>
+              {newsIds.slice(0, limit).map((newsId) => {
+                return <ListItem key={newsId} newsId={newsId} />;
+              })}
+            </ul>
+            <Button onClick={handleButtonClick}>Load More</Button>
+          </>
+        ) : null
+      }
+    />
   );
 };
 

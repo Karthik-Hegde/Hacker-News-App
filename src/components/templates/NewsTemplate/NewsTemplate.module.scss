@@ -1,4 +1,4 @@
-@import "../../styles/variables";
+@import "../../../styles/variables";
 
 .container {
   width: 70%;
@@ -8,19 +8,13 @@
   .main {
     padding-left: 2rem;
 
-    .newsList {
+    ul {
       padding: 0;
     }
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .container {
-    width: 85%;
-  }
-}
-
-@media screen and (max-width: 768px) {
   .container {
     width: 90%;
   }
